@@ -1,0 +1,143 @@
+[
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@devGuru99",
+      "description": "Passionate software developer, loves problem-solving.",
+      "skills_possessed": ["Java", "Python", "SQL"],
+      "open_to_learn": ["Go", "Kubernetes"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@artisticElla",
+      "description": "Digital artist exploring new styles.",
+      "skills_possessed": ["Photoshop", "Illustrator", "Blender"],
+      "open_to_learn": ["UI/UX Design", "AR Graphics"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@astroCoder",
+      "description": "Space enthusiast and coder.",
+      "skills_possessed": ["C++", "MATLAB", "Astrophysics"],
+      "open_to_learn": ["Data Science", "Scala"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@photoMad",
+      "description": "Freelance photographer capturing life’s moments.",
+      "skills_possessed": ["Photography", "Lightroom", "Videography"],
+      "open_to_learn": ["Drone Photography", "Cinematography"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@gameDevLeo",
+      "description": "Indie game developer with a knack for storytelling.",
+      "skills_possessed": ["Unity", "C#", "Unreal Engine"],
+      "open_to_learn": ["VR Development", "Animation"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@wanderlustSam",
+      "description": "Travel blogger sharing global experiences.",
+      "skills_possessed": ["Writing", "Photography", "Social Media Management"],
+      "open_to_learn": ["Video Editing", "SEO"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@craftyHands",
+      "description": "DIY enthusiast and maker.",
+      "skills_possessed": ["Woodworking", "3D Printing", "Electronics"],
+      "open_to_learn": ["Metalworking", "Arduino"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@chefLisa",
+      "description": "Home chef creating fusion dishes.",
+      "skills_possessed": ["Cooking", "Baking", "Food Photography"],
+      "open_to_learn": ["Sourdough Baking", "Molecular Gastronomy"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@cryptoNerd_42",
+      "description": "Blockchain enthusiast and investor.",
+      "skills_possessed": ["Blockchain", "Solidity", "Cryptography"],
+      "open_to_learn": ["Smart Contracts", "DeFi"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@dataWhiz",
+      "description": "Data analyst turning data into insights.",
+      "skills_possessed": ["Excel", "SQL", "Power BI"],
+      "open_to_learn": ["Python", "Machine Learning"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@greenThumb",
+      "description": "Urban gardener and sustainability advocate.",
+      "skills_possessed": ["Gardening", "Composting", "Landscaping"],
+      "open_to_learn": ["Hydroponics", "Permaculture"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@fitnessFreak123",
+      "description": "Certified personal trainer and nutritionist.",
+      "skills_possessed": ["Strength Training", "Nutrition", "Yoga"],
+      "open_to_learn": ["Pilates", "Sports Science"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@musicManiac",
+      "description": "Aspiring musician exploring different genres.",
+      "skills_possessed": ["Guitar", "Songwriting", "Music Production"],
+      "open_to_learn": ["Piano", "Sound Engineering"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@ecoEngineer",
+      "description": "Environmental engineer focusing on renewable energy.",
+      "skills_possessed": ["Solar Design", "Water Treatment", "AutoCAD"],
+      "open_to_learn": ["Wind Energy", "Sustainable Architecture"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@marketingMaven",
+      "description": "Digital marketer driving brand growth.",
+      "skills_possessed": ["SEO", "Content Marketing", "Google Ads"],
+      "open_to_learn": ["Email Marketing", "Growth Hacking"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@languageLover",
+      "description": "Polyglot learning languages for fun.",
+      "skills_possessed": ["English", "Spanish", "French"],
+      "open_to_learn": ["Mandarin", "Arabic"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@codeNinja",
+      "description": "Self-taught coder building cool projects.",
+      "skills_possessed": ["JavaScript", "HTML", "CSS"],
+      "open_to_learn": ["React", "Node.js"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@scienceGeek",
+      "description": "Science communicator making complex ideas simple.",
+      "skills_possessed": ["Public Speaking", "Writing", "Chemistry"],
+      "open_to_learn": ["Podcasting", "Video Editing"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@historyBuff",
+      "description": "History teacher with a passion for storytelling.",
+      "skills_possessed": ["Research", "Teaching", "Writing"],
+      "open_to_learn": ["Podcasting", "Archaeology"]
+    },
+    {
+      "profile_pic": "https://via.placeholder.com/60",
+      "username": "@webDevAnna",
+      "description": "Frontend developer crafting engaging experiences.",
+      "skills_possessed": ["HTML", "CSS", "JavaScript"],
+      "open_to_learn": ["Vue.js", "GraphQL"]
+    }
+  ]
+  
