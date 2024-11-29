@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Animation for button click */
+
+
+        body {
+            background-color: #FF600A;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .navbar {
+            background: rgba(223, 192, 101, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .nav-link,
+        .navbar .navbar-brand {
+            color: #fff !important;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .navbar-brand:hover {
+            color: #00ffff !important;
+        }
+
+        .card {
+            background-color: rgba(255, 3, 3, 0.911);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            border: 2px solid #00ffff;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .request-popup {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+            z-index: 1000;
+            color: #333;
+            max-width: 300px;
+        }
+
+        .request-popup .popup-content {
+            font-size: 14px;
+        }
+
+        .request-popup h5 {
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .request-popup ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .request-popup ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+  /* Adding vibration animation to the mail icon */
+@keyframes mail-vibration {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(3px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-3px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Connect button style */
+.connect-btn {
+    position: relative;
+    overflow: hidden;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Mail icon inside the button */
+/* Remove animation from here */
+.connect-btn .mail-icon {
+    position: absolute;
+    left: 10px;  /* Adjust the position of icon */
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    color: white;  /* Icon color */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent; /* Start with transparent */
+    transition: background 1s linear; /* Smooth transition for the filling effect */
+}
+
+
+/* Font Awesome mail icon */
+.connect-btn .mail-icon::before {
+    content: '\f0e0'; /* Font Awesome mail icon (Unicode for envelope) */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+/* The button text */
+.connect-btn .button-text {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Sent button state */
+.connect-btn.sent {
+    background-color: #28a745; /* Green background for success */
+}
+
+.connect-btn.sent .mail-icon {
+    animation: none; /* Stop vibrating */
+    background-color: #007bff; /* Filled with blue color */
+    transition: background 1s linear; /* Transition for filling effect */
+}
+
+.connect-btn.sent .button-text {
+    transform: translateX(-150%);
+    opacity: 0; /* Fade out the original text */
+}
+
+.connect-btn.sent:after {
+    content: 'Request Sent';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    font-size: 14px;
+    animation: text-fly-in 0.5s ease-in-out forwards;
+}
+
+/* Keyframe animation for text fly-in */
+@keyframes text-fly-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* The 5-step transition to fill the mail icon */
+@keyframes fill-mail {
+    0% {
+        background-color: transparent; /* No fill */
+    }
+    25% {
+        background-color: rgba(0, 123, 255, 0.25); /* Light blue fill */
+    }
+    50% {
+        background-color: rgba(0, 123, 255, 0.5); /* Half-filled */
+    }
+    75% {
+        background-color: rgba(0, 123, 255, 0.75); /* Mostly filled */
+    }
+    100% {
+        background-color: rgba(0, 123, 255, 1); /* Fully filled */
+    }
+}
+
+
+       
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fas fa-cube"></i> SWAPSKILLS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                   <!-- Updated Requests Dropdown -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="requestsDropdown" role="button">
+        Requests <span id="request-count" class="badge bg-light text-dark"></span>
+    </a>
+</li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">@devUser</a>
+                    </li>
+                    <li class="nav-item">
+                        <img src="https://via.placeholder.com/40" alt="Profile" class="profile-pic">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hovering Div -->
+    <div id="hovering-div" class="request-popup" style="display: none;"></div>
+
+    <div class="container mt-5 pt-5">
+        <!-- Search Bar -->
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <input type="text" id="search-input" class="form-control" placeholder="Search users by skills..."
+                    oninput="filterProfiles()">
+            </div>
+        </div>
+
+        <!-- Profiles -->
+        <div class="row" id="profiles-container">
+            <!-- Cards will be dynamically rendered here -->
+        </div>
+    </div>
+
+    <script>
+        // Path to the JSON file (Update this path based on your file structure)
+        const jsonFilePath = '../resources/data.json';
+
+        let profilesData = []; // Store profiles data for filtering
+
+        // Function to load profiles from JSON
+        function loadProfiles() {
+            fetch(jsonFilePath)
+                .then(response => {
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return response.json();
+                })
+                .then(profiles => {
+                    profilesData = profiles; // Save the data
+                    displayProfiles(profilesData); // Display all profiles
+                })
+                .catch(error => console.error('Error loading profiles:', error));
+        }
+
+        // Function to display profiles
+        // Function to display profiles
+function displayProfiles(profiles) {
+    const container = document.getElementById('profiles-container');
+    container.innerHTML = ''; // Clear the container
+    profiles.forEach(profile => {
+        const card = document.createElement('div');
+        card.className = 'col-md-4 mb-4';
+        card.innerHTML = `
+            <div class="card p-4">
+                <div class="d-flex align-items-center">
+                    <img src="${profile.profile_pic}" alt="Profile Pic" class="profile-pic me-3">
+                    <div>
+                        <h5 class="card-title">${profile.username}</h5>
+                        <p class="text-muted mb-1">${profile.description}</p>
+                    </div>
+                </div>
+                <hr>
+                <h6>Skills Possessed:</h6>
+                <ul>
+                    ${profile.skills_possessed.map(skill => `<li>${skill}</li>`).join('')}
+                </ul>
+                <h6>Open to Learn:</h6>
+                <ul>
+                    ${profile.open_to_learn.map(skill => `<li>${skill}</li>`).join('')}
+                </ul>
+                <!-- Connect Button -->
+                <div class="mt-3 text-center">
+                    <button class="btn btn-primary connect-btn" onclick="handleConnect(this)">
+    <span class="mail-icon"></span>
+    <span class="button-text">Connect</span>
+</button>
+
+                    
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+
+// Function to handle Connect button click
+// Function to handle Connect button click
+// Function to handle Connect button click
+function handleConnect(button) {
+    // Add the "sent" class to trigger animations
+    button.classList.add('sent');
+
+    // Apply the 5-step fill animation to the mail icon
+    const mailIcon = button.querySelector('.mail-icon');
+    mailIcon.style.animation = 'fill-mail 5s steps(5) forwards'; // Apply 5-step fill animation
+
+    // Add the vibration animation after a slight delay to start on button click
+    setTimeout(() => {
+        mailIcon.style.animation = 'mail-vibration 0.3s infinite alternate ease-out'; // Add vibration
+    }, 100);
+
+    // Disable the button to prevent multiple clicks
+    button.disabled = true;
+
+    // Once the filling is complete, stop the vibration and show the "Request Sent" message
+    setTimeout(() => {
+        // Stop vibration after the fill is complete
+        mailIcon.style.animation = 'none'; // Stop vibration
+
+        // Hide the mail icon and show the "Request Sent" text
+        mailIcon.style.display = 'none'; // Hide mail icon
+        const textElement = button.querySelector('.button-text');
+        if (textElement) textElement.textContent = 'Request Sent'; // Change button text to 'Request Sent'
+    }, 5000); // 5 seconds for the animation duration
+}
+
+        // Function to filter profiles by skills
+        function filterProfiles() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filteredProfiles = profilesData.filter(profile =>
+                profile.skills_possessed.some(skill => skill.toLowerCase().includes(query))
+            );
+            displayProfiles(filteredProfiles);
+        }
+
+        // Hovering Div Functionality
+        const requestsDropdown = document.getElementById('requestsDropdown');
+        const hoveringDiv = document.getElementById('hovering-div');
+
+        const requestsData = [
+            { user: 'User1', request: 'Request 1 details' },
+            { user: 'User2', request: 'Request 2 details' },
+            { user: 'User3', request: 'Request 3 details' },
+            {user:'User4',request:'Request 4 details'},
+        ];
+        // Function to update the request count
+function updateRequestCount() {
+    const requestCountElement = document.getElementById('request-count');
+    requestCountElement.textContent = requestsData.length;
+}
+
+// Call updateRequestCount after defining requestsData
+document.addEventListener('DOMContentLoaded', () => {
+    loadProfiles();
+    updateRequestCount();
+});
+
+        function toggleHoveringDiv(event) {
+            event.stopPropagation();
+            if (hoveringDiv.style.display === 'none') {
+                hoveringDiv.innerHTML = `
+                    <div class="popup-content">
+                        <h5>Requests</h5>
+                        <ul>
+                            ${requestsData.map(request => `<li><strong>${request.user}:</strong> ${request.request}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                const rect = requestsDropdown.getBoundingClientRect();
+                hoveringDiv.style.top = `${rect.bottom}px`;
+                hoveringDiv.style.left = `${rect.left}px`;
+                hoveringDiv.style.display = 'block';
+            } else {
+                hoveringDiv.style.display = 'none';
+            }
+        }
+
+        function hideHoveringDiv() {
+            hoveringDiv.style.display = 'none';
+        }
+
+        requestsDropdown.addEventListener('click', toggleHoveringDiv);
+        document.addEventListener('click', hideHoveringDiv);
+        hoveringDiv.addEventListener('click', (event) => event.stopPropagation());
+
+        // Load Profiles on Page Load
+        document.addEventListener('DOMContentLoaded', loadProfiles);
+    </script>
+</body>
+
+</html>
